@@ -12,12 +12,15 @@ router.get('/',(req, res, next) => {
     return res.end();
 });
 
-router.get('/inputDisplay', (req, res) => {
+router.post('/inputDisplay', (req, res) => {
+    console.log(req.body.input1);
     res.render('pages/twoInputDisplay', { 
-        title: 'Two Input Display', 
+        title: 'Two Inputs Display', 
         path: '/prove01', // For pug, EJS 
         activeTA03: true, // For HBS
         contentCSS: true, // For HBS
+        input1: req.body.input1,
+        input2: req.body.input2
     });
 });
 

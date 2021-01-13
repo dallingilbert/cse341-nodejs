@@ -5,7 +5,7 @@ const app = express();
 app.use("/users", (req, res, next) => {
     console.log("Inside users route!");
     res.send('<h1>Welcome to my Users Page!</h1>');
-    res.end();
+    return res.end();
 });
 
 app.use("/", (req, res, next) => {

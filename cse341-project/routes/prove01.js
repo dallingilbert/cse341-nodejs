@@ -13,7 +13,6 @@ router.get('/',(req, res, next) => {
 });
 
 router.post('/inputDisplay', (req, res) => {
-    console.log(req.body.input1);
     res.render('pages/twoInputDisplay', { 
         title: 'Two Inputs Display', 
         path: '/prove01', // For pug, EJS 

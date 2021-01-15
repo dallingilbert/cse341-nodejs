@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../includes/header.ejs %>
+</head>
+
+<body>
+    <% include ../includes/nav.ejs %>
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>
+                    <%= title %>
+                </h1>
+                <p>This page will take two inputs (a book and a summary)
+                    and submit them to a display page
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <form class="form-container" action="/prove02/display" method="POST">
+                <label for="book">Book</label>
+                <input type="text" name="title">
+                <label for="summary">Summary</label>
+                <input type="text" name="summary">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+
+</body>
+
+</html>

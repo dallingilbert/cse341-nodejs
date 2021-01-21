@@ -6,16 +6,16 @@ const app = express();
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const errorController = require('../app/controllers/error');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')))
+.set('views', path.join(__dirname, 'views'))
+.set('view engine', 'ejs');
 
 app.use('/admin', adminRoutes);
-
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', 'error-404.html'));
-});
+app.use(errorController.getError);
 
 app.listen(3000);

@@ -13,12 +13,30 @@
 // Our initial setup (package requires, port number setup)
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const path = require('path');
 const PORT = process.env.PORT || 5000 // So we can run on heroku || (OR) localhost:5000
 
 if (PORT == null || PORT == ""){
   PORT = 8000;
 }
+
+const corsOptions = {
+  origin: "https://murmuring-spire-56001.herokuapp.com/",
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
+
+const options = {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: true,
+  family: 4
+};
+
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://djgilb24:<Leperkan126>@cluster0.5ewue.mongodb.net/test?retryWrites=true&w=majority";
 
 const app = express();
 
